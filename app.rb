@@ -4,12 +4,15 @@ require 'sinatra'
 require 'haml'
 require 'sass'
 require 'coffee-script'
+require 'in_bed_with'
 
 set :app_file, __FILE__
 set :root, File.dirname(__FILE__)
 set :views, 'views'
 set :public, 'public'
 set :haml, {:format => :html5} # default Haml format is :xhtml
+
+Sinatra.helpers InBedWith::Helper
 
 get '/' do
   haml :index
